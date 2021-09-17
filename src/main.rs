@@ -11,10 +11,10 @@ fn main() {
             Ok(mut stream) => {
 
                 println!("Iteration {}: Successfully connected to server on port 3333",i);
-                let msg = b"hello!!";
+                let msg = b"hello!";
                 stream.write(msg).unwrap();
                 println!("Sent hello. Waiting for reply....");
-                let mut data = [0 as u8; 7]; // 6 byte buffer
+                let mut data = [0 as u8; 6]; // 6 byte buffer
                 match stream.read_exact(&mut data) {
                     Ok(_) => {
                         if &data == msg {
