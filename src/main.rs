@@ -1,7 +1,7 @@
 use std::net::{TcpStream};
 use std::io::{Read, Write};
 use std::str::from_utf8;
-use chrono::{DateTime, Utc, Duration};
+use chrono::Utc;
 
 fn main() {
     const K_PORT: i32 = 3333;
@@ -42,7 +42,7 @@ fn main() {
                             println!("{}: reply is ok! read {} bytes",Utc::now(), n);
                         } else {
                             let text = from_utf8(&data).unwrap();
-                            println!("{}: Unexpected reply: {}",Utc::now(), text);
+                            println!("{}: Unexpected reply: {} bytes {}",Utc::now(),n, text);
                         }
                     },
                     Err(e) => {
