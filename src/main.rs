@@ -3,7 +3,8 @@ use std::io::{Read, Write};
 use std::str::from_utf8;
 fn main() {
     const K_PORT: i32 = 3333;
-    let connect_string = format!("localhost:{}", K_PORT);
+    const K_HOST: &str = "localhost";
+    let connect_string = format!("{}:{}",K_HOST ,K_PORT);
     let mut i = 0;
     while i < 40 {
         match TcpStream::connect(&connect_string) {
