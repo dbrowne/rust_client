@@ -2,15 +2,19 @@ use std::net::{TcpStream};
 use std::io::{Read, Write};
 use std::str::from_utf8;
 use chrono::Utc;
+use std::{thread, time};
 
 fn main() {
     const K_PORT: i32 = 3333;
     const K_HOST: &str = "localhost";
     const K_BUFSIZ:usize = 1024;
     const K_ITERATIONS: i32 = 20;
+    const K_DURATION: u64 = 5;
+
     let connect_string = format!("{}:{}",K_HOST ,K_PORT);
     let mut ctr = 0;
     while ctr < K_ITERATIONS {
+        thread::sleep(time::Duration::from_secs(K_DURATION));
         match TcpStream::connect(&connect_string) {
             Ok(mut stream) => {
                 println!("{}: iteration {}: Successfully connected to server on port 3333",Utc::now(), ctr);
@@ -37,7 +41,7 @@ fn main() {
                 match stream.read(&mut data) {
                     Ok(n) => {
                         if &data[..n] == &send_string[..] {
-                            println!("{}: reply is ok! read {} bytes",Utc::now(), n);
+                            println!("{}: reply is matches! read {} bytes",Utc::now(), n);
                         } else {
                             let text = from_utf8(&data).unwrap();
                             println!("{}: Unexpected reply: {} bytes {}",Utc::now(),n, text);
