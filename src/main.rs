@@ -4,6 +4,7 @@ use std::str::from_utf8;
 fn main() {
     const K_PORT: i32 = 3333;
     const K_HOST: &str = "localhost";
+    const K_BUFSIZ:usize = 21;
     let connect_string = format!("{}:{}",K_HOST ,K_PORT);
     let mut i = 0;
     while i < 40 {
@@ -14,22 +15,28 @@ fn main() {
                 std::write!(&mut send_string,"this is message #>{:2}<",i).unwrap();
                 println!("sending {}",from_utf8(&send_string).unwrap());
                 match stream.write(&send_string){
-                    Ok(_) => {
-                        println!("write ok!");
+                    Ok(n) => {
+                        println!("write ok! {} bytes",n);
                     },
                     Err(e) =>{
                         println!("Canna write the data Captn'! {}", e);
                     }
                 }
-                stream.flush().unwrap();
+
+                match stream.flush(){
+                    Ok(_) =>{},
+                    Err(e) =>{
+                        println!("Canna flush it {}",e);
+                    }
+                }
 
 
                 println!("Sent {} Waiting for reply....",from_utf8(&send_string).unwrap());
-                let mut data = [0 as u8; 21];
+                let mut data = [0 as u8; K_BUFSIZ];
                 match stream.read_exact(&mut data) {
-                    Ok(_) => {
+                    Ok(n) => {
                         if &data[..] == &send_string[..] {
-                            println!("reply is ok!");
+                            println!("reply is ok! read {} bytes",K_BUFSIZ);
                         } else {
                             let text = from_utf8(&data).unwrap();
                             println!("Unexpected reply: {}", text);
