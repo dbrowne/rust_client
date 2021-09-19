@@ -22,6 +22,7 @@ fn main() {
     const K_BUFSIZ: usize = 1024;
     const K_ITERATIONS: &str = "2000";
     const K_DURATION: &str = "5";
+    const K_MESSAGE: &str = "NONE: USING DEFAULT TIMING MESSAGE";
 
     let mut ctr = 0;
 
@@ -51,10 +52,11 @@ fn main() {
     let _duration: u64;
 
     // check for environment variables
-    let env_port = env::var("CLIENT_PORT").unwrap_or(K_PORT.to_string());
-    let env_host = env::var("CLIENT_HOST").unwrap_or(K_HOST.to_string());
-    let env_dur = env::var("CLIENT_DURATION").unwrap_or(K_DURATION.to_string());
-    let env_iteration = env::var("CLIENT_ITERATIONS").unwrap_or(K_ITERATIONS.to_string());
+    let env_port: String = env::var("CLIENT_PORT").unwrap_or(K_PORT.to_string());
+    let env_host: String = env::var("CLIENT_HOST").unwrap_or(K_HOST.to_string());
+    let env_dur: String = env::var("CLIENT_DURATION").unwrap_or(K_DURATION.to_string());
+    let env_iteration: String = env::var("CLIENT_ITERATIONS").unwrap_or(K_ITERATIONS.to_string());
+    let env_message: String = env::var("CLIENT_MESSAGE").unwrap_or(K_MESSAGE.to_string());
 
     // see if we have any input args
     let args: Vec<String> = env::args().collect();
@@ -67,10 +69,11 @@ fn main() {
         _duration = opt.dur;
     } else {
         println!("Using environment vars: with the following values");
-        println!("port:           {}", env_port);
-        println!("Host:           {}", env_host);
-        println!("delay duration: {}", env_dur);
-        println!("# of Iterations: {}", env_iteration);
+        println!("port:                   {}", env_port);
+        println!("Host:                   {}", env_host);
+        println!("delay duration:         {}", env_dur);
+        println!("# of Iterations:        {}", env_iteration);
+        println!("Env Message to be sent: {}", env_message);
         _port = env_port.parse::<i32>().unwrap();
         _host = &*env_host;
         _iterations = env_iteration.parse::<i32>().unwrap();
@@ -85,8 +88,11 @@ fn main() {
             Ok(mut stream) => {
                 println!("{}: iteration {}: Successfully connected to server on port 3333", Utc::now(), ctr);
                 let mut send_string = Vec::new();
-                std::write!(&mut send_string, "{}: --------from {} message #>{}<", Utc::now(), K_HOST, ctr).unwrap();
-
+                if env_message.eq(&K_MESSAGE.to_string()) {
+                    std::write!(&mut send_string, "{}: --------from {} message #>{}<", Utc::now(), K_HOST, ctr).unwrap();
+                } else {
+                    std::write!(&mut send_string, "{}", env_message).unwrap();
+                }
                 println!("{}: sending {}", Utc::now(), from_utf8(&send_string).unwrap());
                 match stream.write(&send_string) {
                     Ok(n) => {
