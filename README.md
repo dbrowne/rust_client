@@ -183,23 +183,23 @@ Project Link: [https://github.com/dbrowne/rust_client.git](https://github.com/db
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/dbrowne/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/dbrowne/rust_client
 
 [contributors-url]: https://github.com/dbrowne/rust_client/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/dbrowne/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/dbrowne/rust_client
 
 [forks-url]: https://github.com/dbrowne/rust_client/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/dbrowne/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/dbrowne/rust_client
 
 [stars-url]: https://github.com/dbrowne/rust_client/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/dbrowne/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/dbrowne/rust_client
 
 [issues-url]: https://github.com/dbrowne/rust_client/issues
 
-[license-shield]: https://img.shields.io/github/license/dbrowne/repo.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/dbrowne/rust_client
 
 [license-url]: https://github.com/dbrowne/rust_client/blob/master/LICENSE.txt
 
