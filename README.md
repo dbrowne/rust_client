@@ -41,12 +41,12 @@
 <h3 align="center">Rust TCP Client</h3>
 
   <p align="center">
-    Sends a message on a port n time with a delay and expects a response/
+    Sends a message on a port n time with a delay and expect a response
     <br />
-    <a href="https://github.com/dbrowne/rust_client.git"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/dbrowne/rust_client/issues">Report Bug</a>
+    <br/>
     <a href="https://github.com/dbrowne/rust_client/issues">Request Feature</a>
   </p>
 
