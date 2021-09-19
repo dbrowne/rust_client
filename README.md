@@ -88,17 +88,11 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`dbrowne`, `rust_client.git`, `twitter_handle`, `email`, `project_title`, `project_description`
+A simple TCP client written in rust. Might be useful for some
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Rust](https://www.rust-lang.org/tools/install)
 
 <!-- GETTING STARTED -->
 
@@ -108,32 +102,35 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-* npm
+* rust
   ```sh
-  npm install npm@latest -g
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
   ```
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/dbrowne/rust_client.git.git
+   git clone https://github.com/dbrowne/rust_client.git
    ```
-2. Install NPM packages
+2. Build and run the code
    ```sh
-   npm install
+   cd rust_client
+   cargo build --release
+   ./target/release/rust_client [OPTIONS]
+
    ```
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos
-work well in this space. You may also link to more resources.
+```sh
+./target/release/rust_client -h some_host_target -p 3377 -d 0 -i 10
+```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+You are sending 10 messages to some_host_target on port 3377 with no delay
 
 
 
@@ -141,8 +138,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-See the [open issues](https://github.com/dbrowne/rust_client.git/issues) for a list of proposed features (and known
-issues).
+No real roadmap for this it is just a simple client
 
 
 
@@ -150,8 +146,7 @@ issues).
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
-contributions you make are **greatly appreciated**.
+If you really want to...
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)

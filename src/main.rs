@@ -1,7 +1,7 @@
 //! Simple Rust TCP Client
 //! Dwight J. Browne
 //! Will either accept arguments from the command line or ENV vars
-//! -p  port #  -h hostname  -i #of messagess to be sent  -d duration of delay between messages
+//! -p  port #  -h hostname  -i #of messages to be sent  -d duration of delay between messages
 //! ENV VARS are
 //! CLIENT_PORT,  CLIENT_HOST, CLIENT_DURATION, CLIENT_ITERATIONS
 //!
@@ -59,7 +59,7 @@ fn main() {
     // see if we have any input args
     let args: Vec<String> = env::args().collect();
     if args.len() > 1 {
-        println!("Have input args: Overriding Env vars with the following:");
+        println!("Have input args: Overriding default vars with the following: ENV VARS IGNORED!");
         println!("{:#?}", &opt);
         _port = opt.port;
         _host = &opt.host;
@@ -81,7 +81,6 @@ fn main() {
     let connect_string = format!("{}:{}", &_host, &_port);
 
     while ctr < _iterations {
-        thread::sleep(time::Duration::from_secs(_duration));
         match TcpStream::connect(&connect_string) {
             Ok(mut stream) => {
                 println!("{}: iteration {}: Successfully connected to server on port 3333", Utc::now(), ctr);
@@ -109,7 +108,7 @@ fn main() {
                 match stream.read(&mut data) {
                     Ok(n) => {
                         if &data[..n] == &send_string[..] {
-                            println!("{}: reply is matches! read {} bytes", Utc::now(), n);
+                            println!("{}: reply matches! read {} bytes", Utc::now(), n);
                         } else {
                             let text = from_utf8(&data).unwrap();
                             println!("{}: Unexpected reply: {} bytes {}", Utc::now(), n, text);
@@ -125,6 +124,8 @@ fn main() {
             }
         }
         ctr += 1;
+        thread::sleep(time::Duration::from_secs(_duration));
+        println!("");
     }
     println!("{}: Terminated.", Utc::now());
 }
