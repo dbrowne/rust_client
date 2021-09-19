@@ -38,10 +38,10 @@
     <img src="images/riding.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Rust TCP Client</h3>
 
   <p align="center">
-    project_description
+    Sends a message on a port n time with a delay and expects a response/
     <br />
     <a href="https://github.com/dbrowne/rust_client.git"><strong>Explore the docs »</strong></a>
     <br />
@@ -185,23 +185,23 @@ Project Link: [https://github.com/dbrowne/rust_client.git](https://github.com/db
 
 [contributors-shield]: https://img.shields.io/github/contributors/dbrowne/repo.svg?style=for-the-badge
 
-[contributors-url]: https://github.com/dbrowne/rust_client.git/graphs/contributors
+[contributors-url]: https://github.com/dbrowne/rust_client/graphs/contributors
 
 [forks-shield]: https://img.shields.io/github/forks/dbrowne/repo.svg?style=for-the-badge
 
-[forks-url]: https://github.com/dbrowne/rust_client.git/network/members
+[forks-url]: https://github.com/dbrowne/rust_client/network/members
 
 [stars-shield]: https://img.shields.io/github/stars/dbrowne/repo.svg?style=for-the-badge
 
-[stars-url]: https://github.com/dbrowne/rust_client.git/stargazers
+[stars-url]: https://github.com/dbrowne/rust_client/stargazers
 
 [issues-shield]: https://img.shields.io/github/issues/dbrowne/repo.svg?style=for-the-badge
 
-[issues-url]: https://github.com/dbrowne/rust_client.git/issues
+[issues-url]: https://github.com/dbrowne/rust_client/issues
 
 [license-shield]: https://img.shields.io/github/license/dbrowne/repo.svg?style=for-the-badge
 
-[license-url]: https://github.com/dbrowne/rust_client.git/blob/master/LICENSE.txt
+[license-url]: https://github.com/dbrowne/rust_client/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
