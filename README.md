@@ -111,33 +111,30 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/dbrowne/rust_client.git
    ```
-2. Build and run the code
-   ```sh
-   cd rust_client
-   cargo build --release
-   ./target/release/rust_client [OPTIONS]
+   1. Build and run the code
+      ```sh
+      cd rust_client
+      cargo build --release
+      ./target/release/rust_client [OPTIONS]
 
-   ```
-3. Alternatively
-    ```sh 
-       export CLIENT_PORT='6669'
-       export CLIENT_HOST='somehost.com'
-       export CLIENT_DURATION='7'
-       export CLIENT_ITERATIONS='300'
-       export CLIENT_MESSAGE='Hey! How Judoon?'
-       cargo run
-       output::
-           Finished dev [unoptimized + debuginfo] target(s) in 0.02s
-           Running `target/debug/rust_client`
-
-Using environment vars: with the following values port:                   6669 Host:                   somehost.com
-delay duration:         7
-
-# of Iterations:        300
-
-Env Message to be sent: Hey! How Judoon?
-
-    ```
+      ```
+      1. Alternatively
+          ```sh 
+             export CLIENT_PORT='6669'
+             export CLIENT_HOST='somehost.com'
+             export CLIENT_DURATION='7'
+             export CLIENT_ITERATIONS='300'
+             export CLIENT_MESSAGE='Hey! How Judoon?'
+             cargo run
+             output::
+                 Finished dev [unoptimized + debuginfo] target(s) in 0.02s
+                 Running target/debug/rust_client   
+          Using environment vars: with the following values
+          port:                   6669
+          Host:                   somehost.com 
+          delay duration:         7
+          `#` of Iterations:        300
+          Env Message to be sent: Hey! How Judoon?
 
 <!-- USAGE EXAMPLES -->
 
