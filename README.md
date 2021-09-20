@@ -133,7 +133,7 @@ To get a local copy up and running follow these simple steps.
           port:                   6669
           Host:                   somehost.com 
           delay duration:         7
-          `#` of Iterations:        300
+          # of Iterations:        300
           Env Message to be sent: Hey! How Judoon?
 
 <!-- USAGE EXAMPLES -->

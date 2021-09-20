@@ -69,11 +69,11 @@ fn main() {
         _duration = opt.dur;
     } else {
         println!("Using environment vars: with the following values");
-        println!("port:                   {}", env_port);
-        println!("Host:                   {}", env_host);
-        println!("delay duration:         {}", env_dur);
-        println!("# of Iterations:        {}", env_iteration);
-        println!("Env Message to be sent: {}", env_message);
+        println!("port: CLIENT_PORT                        {}", env_port);
+        println!("Host: CLIENT_HOST                        {}", env_host);
+        println!("delay duration:  CLIENT_DURATION         {}", env_dur);
+        println!("# of Iterations: CLIENT_ITERATIONS       {}", env_iteration);
+        println!("Env Message to be sent: CLIENT_MESSAGE   {}", env_message);
         _port = env_port.parse::<i32>().unwrap();
         _host = &*env_host;
         _iterations = env_iteration.parse::<i32>().unwrap();
