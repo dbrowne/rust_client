@@ -41,7 +41,7 @@
 <h3 align="center">Rust TCP Client</h3>
 
   <p align="center">
-    Sends a message on a port n time with a delay and expect a response
+    Sends a message on a port n times with a delay and expect a response
     <br />
     <br />
     <br />
