@@ -86,7 +86,7 @@ fn main() {
     while ctr < _iterations {
         match TcpStream::connect(&connect_string) {
             Ok(mut stream) => {
-                println!("{}: iteration {}: Successfully connected to server on port 3333", Utc::now(), ctr);
+                println!("{}: iteration {}: Successfully connected to server {} on port {}", Utc::now(), ctr,&_host, &_port);
                 let mut send_string = Vec::new();
                 if env_message.eq(&K_MESSAGE.to_string()) {
                     std::write!(&mut send_string, "{}: --------from {} message #>{}<", Utc::now(), K_HOST, ctr).unwrap();
