@@ -52,8 +52,8 @@ fn main() {
     let _duration: u64;
 
     // check for environment variables
-    let env_port: String = env::var("CLIENT_PORT").unwrap_or(K_PORT.to_string());
-    let env_host: String = env::var("CLIENT_HOST").unwrap_or(K_HOST.to_string());
+    let env_port: String = env::var("SERVER_PORT").unwrap_or(K_PORT.to_string());
+    let env_host: String = env::var("SERVER_HOST").unwrap_or(K_HOST.to_string());
     let env_dur: String = env::var("CLIENT_DURATION").unwrap_or(K_DURATION.to_string());
     let env_iteration: String = env::var("CLIENT_ITERATIONS").unwrap_or(K_ITERATIONS.to_string());
     let env_message: String = env::var("CLIENT_MESSAGE").unwrap_or(K_MESSAGE.to_string());
@@ -69,8 +69,8 @@ fn main() {
         _duration = opt.dur;
     } else {
         println!("Using environment vars: with the following values");
-        println!("port: CLIENT_PORT                        {}", env_port);
-        println!("Host: CLIENT_HOST                        {}", env_host);
+        println!("port: SERVER_PORT                        {}", env_port);
+        println!("Host: SERVER_HOST                        {}", env_host);
         println!("delay duration:  CLIENT_DURATION         {}", env_dur);
         println!("# of Iterations: CLIENT_ITERATIONS       {}", env_iteration);
         println!("Env Message to be sent: CLIENT_MESSAGE   {}", env_message);
