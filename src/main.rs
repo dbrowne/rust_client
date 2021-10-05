@@ -116,8 +116,8 @@ fn main() {
                         if &data[..n] == &send_string[..] {
                             println!("{}: reply matches! read {} bytes", Utc::now(), n);
                         } else {
-                            let text = from_utf8(&data).unwrap();
-                            println!("{}: Unexpected reply: {} bytes {}", Utc::now(), n, text);
+                            let text = from_utf8(&data[..n]).unwrap();
+                            println!("{}: reply: {} bytes {}", Utc::now(), n, text);
                         }
                     }
                     Err(e) => {
